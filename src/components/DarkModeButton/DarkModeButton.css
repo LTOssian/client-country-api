@@ -1,0 +1,10 @@
+.DarkModeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+span {
+    margin-left: .5rem;
+}
