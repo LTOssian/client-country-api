@@ -9,4 +9,11 @@ describe("DarkModeButton - Component Test", () => {
         const imageElement = screen.getByAltText(/Moon picto/i);
         expect(imageElement).toBeInTheDocument();
     });
+
+    it("should properly render the button text", () => {
+        render(<DarkModeButton/>);
+        const textButton = screen.getByText(/Dark Mode?/i);
+        expect(textButton).toBeInTheDocument();
+    });
+
 })
