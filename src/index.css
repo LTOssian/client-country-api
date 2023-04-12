@@ -9,6 +9,20 @@
   font-weight: normal;
 }
 
+:root {
+  --header-card-background: #FFFFFF;
+  --main-background: #FAFAFA;
+  --text-primary: #111517;
+  --text-secondary: #848484;
+}
+
+[data-theme="dark"] {
+  --header-card-background: #2B3844;
+  --main-background: #202C36;
+  --text-primary: #FFFFFF;
+  --text-secondary: #FFFFFF;
+}
+
 body {
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;

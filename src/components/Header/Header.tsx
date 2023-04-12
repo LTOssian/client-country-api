@@ -1,12 +1,20 @@
-import React, { FC } from 'react';
+import React from 'react';
 import './Header.css'
 import DarkModeButton from '../DarkModeButton/DarkModeButton';
 
-const Header: FC = () => {
+export interface ThemeProps {
+    handleTheme: () => void;
+    currentTheme: string;
+}
+
+const Header = ({handleTheme, currentTheme}: ThemeProps) => {
+    
+
     return (
         <div className="Header">
             <h1>Where in the world?</h1>
-            <DarkModeButton />
+
+            <DarkModeButton handleTheme={handleTheme} currentTheme={currentTheme}/>
         </div>
     )
 }
