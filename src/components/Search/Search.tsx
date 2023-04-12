@@ -4,15 +4,19 @@ import './Search.css'
 
 interface SearchProps {
     placeHolder: string;
+    searchValue: string;
+    searchOnChange: (searchValue: string) => void;
+    filterValue: string,
+    filterOnChange: (filterValue: string) => void;
 }
 
-const Search = ({placeHolder}: SearchProps) => {
+const Search = ({placeHolder, searchValue, searchOnChange, filterValue, filterOnChange}: SearchProps) => {
+
     return (
         <div className="Search">
             <label htmlFor="search" className="inputSearch">
                 <img src={SearchIcon} alt="Search Icon" />
-                {/* <span></span> */}
-                <input type="search" name="search" id="search" placeholder={placeHolder}/>
+                <input onChange={(e) => {searchOnChange(e.target.value)}} value={searchValue} type="search" name="search" id="search" placeholder={placeHolder}/>
             </label>
 
             <div className="filterSearch">

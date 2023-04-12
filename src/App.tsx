@@ -6,13 +6,9 @@ import Main from './components/Main/Main';
 function App() {
   const [currentTheme, setCurrentTheme] = useState('');
 
-  const updateTheme = () => {
-    currentTheme ? setCurrentTheme('') : setCurrentTheme('dark')
-
-  }
   return (
     <div className="App" data-theme={currentTheme}>
-      <Header handleTheme={updateTheme} currentTheme={currentTheme}/>
+      <Header onClick={setCurrentTheme} currentTheme={currentTheme}/>
       <Main />
     </div>
   );

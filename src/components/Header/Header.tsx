@@ -3,18 +3,18 @@ import './Header.css'
 import DarkModeButton from '../DarkModeButton/DarkModeButton';
 
 export interface ThemeProps {
-    handleTheme: () => void;
     currentTheme: string;
+    onClick: (currentTheme: string) => void;
 }
 
-const Header = ({handleTheme, currentTheme}: ThemeProps) => {
+const Header = ({onClick, currentTheme}: ThemeProps) => {
     
 
     return (
         <div className="Header">
             <h1>Where in the world?</h1>
 
-            <DarkModeButton handleTheme={handleTheme} currentTheme={currentTheme}/>
+            <DarkModeButton onClick={onClick} currentTheme={currentTheme}/>
         </div>
     )
 }
