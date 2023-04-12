@@ -10,7 +10,7 @@
 
 # production
 /build
-
+*.test.tsx
 # misc
 .DS_Store
 .env.local
