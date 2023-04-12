@@ -8,7 +8,7 @@ const DarkModeButton = ({onClick, currentTheme} : ThemeProps) => {
     return (
         <div className="DarkModeButton" onClick={(e) => onClick(currentTheme ? '' : 'dark')}>
             <img src={currentTheme ? darkMoon : lightMoon} alt="Moon picto" />
-            <span>Dark Mode</span>
+            <span className="darkModeSpan">Dark Mode</span>
         </div>
     )
 }
