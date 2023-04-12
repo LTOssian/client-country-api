@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App" data-theme={currentTheme}>
       <Header onClick={setCurrentTheme} currentTheme={currentTheme}/>
-      <Main />
+      <Main currentTheme={currentTheme}/>
     </div>
   );
 }

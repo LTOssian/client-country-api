@@ -1,8 +1,10 @@
 import React from 'react';
-import SearchIcon from '../../assets/searchIcon.svg'
+import lightSearch from '../../assets/lightSearch.svg'
+import darkSearch from '../../assets/darkSearch.svg'
 import './Search.css'
 
 interface SearchProps {
+    currentTheme: string;
     placeHolder: string;
     searchValue: string;
     searchOnChange: (searchValue: string) => void;
@@ -10,12 +12,12 @@ interface SearchProps {
     filterOnChange: (filterValue: string) => void;
 }
 
-const Search = ({placeHolder, searchValue, searchOnChange, filterValue, filterOnChange}: SearchProps) => {
+const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterValue, filterOnChange}: SearchProps) => {
 
     return (
         <div className="Search">
             <label htmlFor="search" className="inputSearch">
-                <img src={SearchIcon} alt="Search Icon" />
+                <img src={!currentTheme ? lightSearch : darkSearch} alt="Search Icon" />
                 <input onChange={(e) => {searchOnChange(e.target.value)}} value={searchValue} type="search" name="search" id="search" placeholder={placeHolder}/>
             </label>
 
