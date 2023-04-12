@@ -2,13 +2,18 @@ import React from 'react';
 import SearchIcon from '../../assets/searchIcon.svg'
 import './Search.css'
 
-const Search = () => {
+interface SearchProps {
+    placeHolder: string;
+}
+
+const Search = ({placeHolder}: SearchProps) => {
     return (
         <div className="Search">
-            <div className="inputSearch">
+            <label htmlFor="search" className="inputSearch">
                 <img src={SearchIcon} alt="Search Icon" />
-                <input type="search" name="search" id="search" />
-            </div>
+                {/* <span></span> */}
+                <input type="search" name="search" id="search" placeholder={placeHolder}/>
+            </label>
 
             <div className="filterSearch">
                 <label htmlFor="regionFilter">Filter by Region</label>

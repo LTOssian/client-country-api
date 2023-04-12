@@ -1,6 +1,7 @@
 :root {
     --input-width: 30rem;
     --input-height: 3.5rem;
+    --input-text: .925rem;
 }
 
 .Search {
@@ -12,11 +13,26 @@
 .inputSearch {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     padding-left: 2rem;
     background-color: var(--header-card-background);
     border-radius: 5px;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
     width: var(--input-width);
-    height: var(--input-height)
+    height: var(--input-height);
+}
+
+input[type="search"] {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--header-card-background);
+    color: var(--text-primary);
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+
+input[type="search"]::placeholder {
+    font-size: var(--input-text);
+    color: var(--text-secondary);
 }

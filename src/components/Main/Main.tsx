@@ -5,7 +5,7 @@ import Search from '../Search/Search';
 const Main = () => {
     return (
         <div className="Main">
-            <Search />
+            <Search placeHolder='Search for a country...'/>
         </div>
     )
 }
