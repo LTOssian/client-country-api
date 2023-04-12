@@ -7,7 +7,7 @@
     align-items: center;
     height: 5rem;
     user-select: none;
-    margin-bottom: var(--header-b-margin);
+    margin-bottom: var(--comp-b-margin);
 }
 
 h1 {

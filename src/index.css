@@ -16,7 +16,7 @@
   --text-secondary: #848484;
   --h-padding: 5rem;
   --header-fs: 1.5rem;
-  --header-b-margin: 3rem;
+  --comp-b-margin: 3rem;
 }
 
 [data-theme="dark"] {
@@ -30,7 +30,7 @@
   :root {
     --h-padding: 1rem;
     --header-fs: 14px;
-    --header-b-margin: 1.5rem;
+    --comp-b-margin: 1.5rem;
 
   }
 }
