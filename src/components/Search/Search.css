@@ -1,0 +1,22 @@
+:root {
+    --input-width: 30rem;
+    --input-height: 3.5rem;
+}
+
+.Search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputSearch {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 2rem;
+    background-color: var(--header-card-background);
+    border-radius: 5px;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+    width: var(--input-width);
+    height: var(--input-height)
+}
