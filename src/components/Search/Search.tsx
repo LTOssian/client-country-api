@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import lightSearch from '../../assets/lightSearch.svg';
 import darkSearch from '../../assets/darkSearch.svg';
 import lightExpand from '../../assets/lightExpand.svg';
@@ -9,12 +9,13 @@ interface SearchProps {
     currentTheme: string;
     placeHolder: string;
     searchValue: string;
-    searchOnChange: (searchValue: string) => void;
+    searchOnChange: Dispatch<SetStateAction<string>>;
     filterValue: string,
-    filterOnChange: (filterValue: string) => void;
+    filterOnChange: Dispatch<SetStateAction<string>>;
+    regionsList: string[];
 }
 
-const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterValue, filterOnChange}: SearchProps) => {
+const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterValue, filterOnChange, regionsList}: SearchProps) => {
     const [showOptions, setShowOptions] = useState(false);
     return (
         <div className="Search">
