@@ -1,26 +1,17 @@
 .Header {
     background-color: var(--header-card-background);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
-    padding: 0 5rem;
+    padding: 0 var(--h-padding);
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 5rem;
+    user-select: none;
+    margin-bottom: var(--header-b-margin);
 }
 
 h1 {
     font-weight: 800;
-    font-size: 24px;
+    font-size: var(--header-fs);
     cursor: pointer;
-}
-
-@media only screen and (max-width: 600px) {
-    h1 {
-        font-size: 14px;
-    }
-
-    .Header {
-        padding: 0 1rem;
-    }
-    
 }

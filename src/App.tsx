@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState('');
@@ -12,6 +13,7 @@ function App() {
   return (
     <div className="App" data-theme={currentTheme}>
       <Header handleTheme={updateTheme} currentTheme={currentTheme}/>
+      <Main />
     </div>
   );
 }
