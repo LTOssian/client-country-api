@@ -30,15 +30,15 @@ const Main = ({currentTheme}: MainProps) => {
                         regionsData.push(country.region)
                     }
                 })    
-            
             setRegions(regionsData);
-        }    
+        }
     }, [data, isSuccess])
+
+
 
     return (
         <div className="Main">
 
-            {!cardPage ? 
             <>
                 <Search 
                     currentTheme={currentTheme}
@@ -51,14 +51,13 @@ const Main = ({currentTheme}: MainProps) => {
                 />
 
                 <Cards 
+                    filterValue={filterValue}
                     isLoading={isLoading}
                     isError={isError}
                     onClick={setCardPage}
+                    data={data}
                 /> 
             </>
-            : <>
-                <h1>non</h1>
-            </>}
 
             
         </div>

@@ -1,27 +1,26 @@
 import axios from "axios";
 
-interface HomeData {
+export interface HomeData {
     name: {
         common: string;
         official: string;
         nativeName:{
             eng: {
-                official: string;
-                common: string;
+                [key: string]: string;
             };
         };
-    };
-    currencies: {
-
     };
     capital: Array<string>;
     region: string;
     population: number;
+    flags: {
+        [key: string]: string;
+    }
 
 }
 
 export const homeCountriesData = async () => {
-    const response = await axios.get("https://restcountries.com/v3.1/all?fields=name,region,population,capital,currencies");
+    const response = await axios.get("https://restcountries.com/v3.1/all?fields=name,region,population,capital,flags");
     const countriesData:HomeData[] = response.data
 
     return countriesData;

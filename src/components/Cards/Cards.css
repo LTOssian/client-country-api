@@ -2,4 +2,9 @@
     text-align: center;
     color: var(--text-secondary);
 }
-
+.Cards {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 75px;
+}

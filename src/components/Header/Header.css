@@ -10,8 +10,6 @@
     margin-bottom: var(--comp-b-margin);
 }
 
-h1 {
-    font-weight: 800;
-    font-size: var(--header-fs);
+.Header h1 {
     cursor: pointer;
 }

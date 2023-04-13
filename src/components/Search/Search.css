@@ -75,6 +75,7 @@ input[type="search"]::placeholder {
     display: flex;
     flex-flow: column;
     position: absolute;
+    z-index: 1;
     top: calc(.25rem + var(--input-height));
 }
 
@@ -82,14 +83,6 @@ input[type="search"]::placeholder {
     width: 100%;
     padding: .5rem 1.5rem;
     cursor: pointer;
-}
-
-.option:first-of-type {
-    padding-top: 1rem; 
-}
-
-.option:last-of-type {
-    padding-bottom: 1rem; 
 }
 
 .option:hover {
