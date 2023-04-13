@@ -5,6 +5,7 @@ import DarkBackArrow from '../../assets/darkBackArrow.svg'
 import BackButton from '../BackButton/BackButton';
 import { CountryDetailsData, DetailsData } from '../../fetchers/detailsData';
 import { useQuery } from 'react-query';
+import DetailMain from '../DetailMain/DetailMain';
 
 interface DetailProps {
     currentTheme: string;
@@ -13,7 +14,7 @@ interface DetailProps {
 }
 
 const CountryDetails = ({currentTheme, setCardPage, cardPage}: DetailProps) => {
-    const [countryData, setCountryData] = useState<DetailsData | undefined>();
+    const [countryData, setCountryData] = useState<DetailsData | undefined>(undefined);
 
     const {isError, isSuccess,isLoading, data} = useQuery(
         ["countryDetail", cardPage],
@@ -23,23 +24,31 @@ const CountryDetails = ({currentTheme, setCardPage, cardPage}: DetailProps) => {
         }
     )
 
-    if (isError) {
-        console.log("fail fail")
-    }
-
-    if (isLoading) {
-        console.log("noramelemtn ca arrive")
-    }
-
     useEffect(() => {
         if (isSuccess) {
             setCountryData(data[0])
         }
     }, [data, isSuccess])
 
+
+    if (isError) return <h2 className="errorTitle">An error 502 occured... Please reload</h2>
+
+    if (isLoading) return <h2 className="loadingTitle">Loading data...</h2>
+
+
     return (
         <div className="CountryDetails">
             <BackButton backIcon={currentTheme ? DarkBackArrow: LightBackArrow} setCardPage={setCardPage} setCountryData={setCountryData}/>
+             {
+                <DetailMain 
+                    flagSrc={countryData?.flags.svg}
+                    flagAlt={countryData?.flags.alt}
+                    name={countryData?.name.common}
+                    nativeName={countryData?.name.nativeName[Object.keys(countryData?.name.nativeName)[0]].common}
+                />
+            } 
+        
+            
         </div>
     )
 }

@@ -5,7 +5,7 @@ export interface HomeData {
         common: string;
         official: string;
         nativeName:{
-            eng: {
+            [key: string]: {
                 [key: string]: string;
             };
         };

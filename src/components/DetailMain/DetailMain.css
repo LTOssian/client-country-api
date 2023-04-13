@@ -1,0 +1,26 @@
+.DetailMain {
+    display: flex;
+    justify-content: space-between;
+}
+
+.DetailMain .flagContainer img {
+    width: 560px;
+    height: 401px;
+    border-radius: 10px;
+}
+
+.detailContainer h2 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.detailContainer {
+    text-align: left;
+}
+
+.spansContainer {
+    display: flex;
+    width:fit-content;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    height: 160px;
+}
