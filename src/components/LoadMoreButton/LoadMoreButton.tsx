@@ -4,18 +4,16 @@ import './LoadMoreButton.css';
 interface LoadMoreProps {
     cardsCount: number;
     onClick: Dispatch<SetStateAction<number>>
+    countryLength: number;
 }
 
-const LoadMore = ({cardsCount, onClick}: LoadMoreProps) => {
+const LoadMore = ({cardsCount, onClick, countryLength}: LoadMoreProps) => {
 
 
-    return (
+    return countryLength > cardsCount ? (
         <div className="LoadMoreButton" onClick={(e) => onClick( cardsCount + 8 )}>
-            <span>Load More...</span>
+            <span>Show More...</span>
         </div>
-    )
-}
+    ) : null}
 
 export default LoadMore
-
-//todo onclick add 4 to cardsCount

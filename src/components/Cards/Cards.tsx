@@ -48,6 +48,7 @@ const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data}: Car
             <LoadMoreButton 
                 cardsCount={cardsCount}
                 onClick={setCardsCount}
+                countryLength={filteredData.length}
             />
         </div>
     )
