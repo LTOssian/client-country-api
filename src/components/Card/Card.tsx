@@ -1,4 +1,3 @@
-import React, { Dispatch, SetStateAction } from 'react';
 import './Card.css';
 
 interface CardProps {
@@ -8,13 +7,12 @@ interface CardProps {
     flagSrc: string;
     flagAlt: string;
     region: string;
-    moreCard: Dispatch<SetStateAction<number>>
 }
 
 const Card = ({name, capital, population, flagAlt, flagSrc, region} :CardProps) => {
     return (
         <div className="Card">
-            <div className="flagContainer" style={{backgroundImage:`url(${flagSrc})`}}>
+            <div className="flagContainer" style={{backgroundImage:`url(${flagSrc})`}} aria-label={flagAlt}>
             </div>
             <div className="infoContainer">
                 <h3 className="title">{name}</h3>
