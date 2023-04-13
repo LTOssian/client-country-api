@@ -4,21 +4,24 @@ import { HomeData } from '../../fetchers/homeDatas';
 import Card from '../Card/Card';
 
 interface CardsProps {
-    filterValue: string,
+    filterValue: string;
+    searchValue: string;
     isLoading: boolean;
     isError: boolean;
     onClick: Dispatch<SetStateAction<boolean>>;
     data: HomeData[] | undefined;
 }
 
-const Cards = ({filterValue, isLoading, isError, onClick, data}: CardsProps) => {
+const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data}: CardsProps) => {
     const [cardsCount, setCardsCount] = useState(12);
-    const [filteredData, setFilteredData] = useState<HomeData[] | undefined>([])
-    useEffect(() => {
-        const filteredData = filterValue ? data?.filter(country => country.region === filterValue) : data 
+    const [filteredData, setFilteredData] = useState<HomeData[] | []>([]);
 
-        setFilteredData(filteredData)
-    }, [data, filterValue, filteredData])
+
+    useEffect(() => {
+        const selectedData = filterValue ? data?.filter(country => country.region === filterValue) : data;
+        const searchedData = searchValue ? selectedData?.filter(country => (country.name.common.toLowerCase()).startsWith(searchValue.toLowerCase().trim())) : selectedData;
+        setFilteredData(searchedData ? searchedData : [])
+    }, [data, filterValue, searchValue])
 
     return (
         <div className="Cards">
@@ -26,15 +29,17 @@ const Cards = ({filterValue, isLoading, isError, onClick, data}: CardsProps) => 
                 ?<h2 className="errorTitle">An error occured... Please reload</h2> 
                 : isLoading 
                 ?<h2 className="loadingTitle">Loading data...</h2>
-                : filteredData?.slice(0, cardsCount).map((country) => {
-                    return <Card 
-                    name= {country.name.common}
-                    capital= {country.capital[0]}
-                    population= {country.population}
-                    flagSrc= {country.flags.svg}
-                    flagAlt= {country.flags.alt}
-                    region= {country.region}
-                    moreCard= {setCardsCount}
+                : !filteredData?.length ? <h2  className="errorTitle">No country was found with this name...</h2>
+                    :filteredData.slice(0, cardsCount).map((country) => {
+                        return <Card 
+                        key={country.name.official}
+                        name= {country.name.common}
+                        capital= {country.capital[0]}
+                        population= {country.population}
+                        flagSrc= {country.flags.svg}
+                        flagAlt= {country.flags.alt}
+                        region= {country.region}
+                        moreCard= {setCardsCount}
                     />
                 })
             }

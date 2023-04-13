@@ -52,6 +52,7 @@ const Main = ({currentTheme}: MainProps) => {
 
                 <Cards 
                     filterValue={filterValue}
+                    searchValue={searchValue}
                     isLoading={isLoading}
                     isError={isError}
                     onClick={setCardPage}
