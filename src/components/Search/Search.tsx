@@ -50,7 +50,7 @@ const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterV
                     {
                         showOptions ? regionsList.map(region => {
                             return (
-                                <span className="option" onClick={(e) => {
+                                <span className="option" key={region} onClick={(e) => {
                                     filterOnChange(e.currentTarget.textContent as string)
                                     setShowOptions(showOptions ? false : true)
                                 }}>

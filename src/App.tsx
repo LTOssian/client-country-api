@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState('');
+  const persistentTheme = localStorage.getItem('PERSISTENT_THEME') as string;
+  const [currentTheme, setCurrentTheme] = useState(persistentTheme);
+
+  useEffect(() => {
+    localStorage.setItem("PERSISTENT_THEME", currentTheme);
+  }, [currentTheme])
 
   return (
     <QueryClientProvider client={queryClient}>
