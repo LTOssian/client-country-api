@@ -17,6 +17,7 @@ interface SearchProps {
 
 const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterValue, filterOnChange, regionsList}: SearchProps) => {
     const [showOptions, setShowOptions] = useState(false);
+
     return (
         <div className="Search">
             <label htmlFor="search" className="inputSearch">
@@ -45,16 +46,20 @@ const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterV
                     <img src={!currentTheme ? lightExpand : darkExpand} alt="Expand Icon" />
                 </div>
 
-            {showOptions ? 
                 <div className="options">
-                    <span className="option">Afrique</span>
-                    <span className="option">Europe</span>
-                    <span className="option">Option 2</span>
-                    <span className="option">Option 2</span>
-
+                    {
+                        showOptions ? regionsList.map(region => {
+                            return (
+                                <span className="option" onClick={(e) => {
+                                    filterOnChange(e.currentTarget.textContent as string)
+                                    setShowOptions(showOptions ? false : true)
+                                }}>
+                                    {region}
+                                </span>
+                            )
+                        }) : null
+                    }
                 </div>
-                : null
-                }
             </div>
 
 
