@@ -3,7 +3,7 @@ import './Card.css';
 interface CardProps {
     name: string;
     capital: string;
-    population: number;
+    population: string;
     flagSrc: string;
     flagAlt: string;
     region: string;

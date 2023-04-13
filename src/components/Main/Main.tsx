@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useQuery } from "react-query";
 import { homeCountriesData } from "../../fetchers/homeDatas";
 import './Main.css';
@@ -7,11 +7,11 @@ import Cards from '../Cards/Cards'
 
 interface MainProps {
     currentTheme: string;
+    setCardPage: Dispatch<SetStateAction<null | object>>
 }
-const Main = ({currentTheme}: MainProps) => {
+const Main = ({currentTheme, setCardPage}: MainProps) => {
     const [searchValue, setSearchValue] = useState('');
     const [filterValue, setFilterValue] = useState('');
-    const [cardPage, setCardPage] = useState(false);
     const [regionsList, setRegions] = useState([""]);
 
     const {isError, isSuccess,isLoading, data} = useQuery(
@@ -38,8 +38,6 @@ const Main = ({currentTheme}: MainProps) => {
 
     return (
         <div className="Main">
-            { !cardPage ?
-            <>
                 <Search 
                     currentTheme={currentTheme}
                     placeHolder='Search for a country...' 
@@ -58,10 +56,6 @@ const Main = ({currentTheme}: MainProps) => {
                     onClick={setCardPage}
                     data={data}
                 /> 
-            </>
-            : null
-            }
-            
         </div>
     )
 }

@@ -9,7 +9,7 @@ interface CardsProps {
     searchValue: string;
     isLoading: boolean;
     isError: boolean;
-    onClick: Dispatch<SetStateAction<boolean>>;
+    onClick: Dispatch<SetStateAction<null | object>>;
     data: HomeData[] | undefined;
 }
 
@@ -30,16 +30,16 @@ const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data}: Car
     return (
         <div className="Cards">
             {isError 
-                ?<h2 className="errorTitle">An error occured... Please reload</h2> 
+                ?<h2 className="errorTitle">An error 502 occured... Please reload</h2> 
                 : isLoading 
                 ?<h2 className="loadingTitle">Loading data...</h2>
-                : !filteredData?.length ? <h2  className="errorTitle">No country was found with this name...</h2>
+                : !filteredData?.length ? <h2  className="errorTitle">We could not find a country with this name...</h2>
                     :filteredData.slice(0, cardsCount).map((country) => {
                         return <Card 
                         key={country.name.official}
                         name= {country.name.common}
                         capital= {country.capital[0]}
-                        population= {country.population}
+                        population= {(country.population).toLocaleString(undefined, {})}
                         flagSrc= {country.flags.svg}
                         flagAlt= {country.flags.alt}
                         region= {country.region} />
@@ -48,8 +48,7 @@ const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data}: Car
             <LoadMoreButton 
                 cardsCount={cardsCount}
                 onClick={setCardsCount}
-                countryLength={filteredData.length}
-            />
+                countryLength={filteredData.length} />
         </div>
     )
 }
