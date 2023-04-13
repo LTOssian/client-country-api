@@ -38,7 +38,7 @@ const Main = ({currentTheme}: MainProps) => {
 
     return (
         <div className="Main">
-
+            { !cardPage ?
             <>
                 <Search 
                     currentTheme={currentTheme}
@@ -58,7 +58,8 @@ const Main = ({currentTheme}: MainProps) => {
                     data={data}
                 /> 
             </>
-
+            : null
+            }
             
         </div>
     )
