@@ -9,11 +9,13 @@ interface CardsProps {
     searchValue: string;
     isLoading: boolean;
     isError: boolean;
-    onClick: Dispatch<SetStateAction<null | object>>;
+    onClick: Dispatch<SetStateAction<string>>;
     data: HomeData[] | undefined;
+    setCardPage: Dispatch<SetStateAction<string>>;
+
 }
 
-const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data}: CardsProps) => {
+const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data, setCardPage}: CardsProps) => {
     const [cardsCount, setCardsCount] = useState(12);
     const [filteredData, setFilteredData] = useState<HomeData[] | []>([]);
 
@@ -42,7 +44,8 @@ const Cards = ({filterValue, searchValue,isLoading, isError, onClick, data}: Car
                         population= {(country.population).toLocaleString(undefined, {})}
                         flagSrc= {country.flags.svg}
                         flagAlt= {country.flags.alt}
-                        region= {country.region} />
+                        region= {country.region} 
+                        setCardPage={setCardPage}/>
                     })
             }
             <LoadMoreButton 

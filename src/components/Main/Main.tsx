@@ -7,7 +7,7 @@ import Cards from '../Cards/Cards'
 
 interface MainProps {
     currentTheme: string;
-    setCardPage: Dispatch<SetStateAction<null | object>>
+    setCardPage: Dispatch<SetStateAction<string>>;
 }
 const Main = ({currentTheme, setCardPage}: MainProps) => {
     const [searchValue, setSearchValue] = useState('');
@@ -55,6 +55,7 @@ const Main = ({currentTheme, setCardPage}: MainProps) => {
                     isError={isError}
                     onClick={setCardPage}
                     data={data}
+                    setCardPage={setCardPage}
                 /> 
         </div>
     )

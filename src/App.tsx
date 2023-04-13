@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 function App() {
   const persistentTheme = localStorage.getItem('PERSISTENT_THEME') as string;
   const [currentTheme, setCurrentTheme] = useState(persistentTheme);
-  const [cardPage, setCardPage] = useState<null | object>(null);
+  const [cardPage, setCardPage] = useState<string>('');
 
   useEffect(() => {
     localStorage.setItem("PERSISTENT_THEME", currentTheme);
@@ -21,9 +21,9 @@ function App() {
       <div className="App" data-theme={currentTheme}>
         <Header onClick={setCurrentTheme} currentTheme={currentTheme}/>
         {
-          Object.keys(cardPage || {}).length
+          !cardPage
             ? <Main currentTheme={currentTheme} setCardPage={setCardPage}/> 
-            : <CountryDetails currentTheme={currentTheme} setCardPage={setCardPage}/>
+            : <CountryDetails currentTheme={currentTheme} setCardPage={setCardPage} cardPage={cardPage}/>
         }
       </div>
     </QueryClientProvider>

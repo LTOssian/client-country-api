@@ -1,13 +1,18 @@
 import { Dispatch, SetStateAction } from 'react';
 import './BackButton.css';
+import { DetailsData } from '../../fetchers/detailsData';
 interface BackButtonProps {
     backIcon: string
-    setCardPage: Dispatch<SetStateAction<{}>>
+    setCardPage: Dispatch<SetStateAction<string>>
+    setCountryData: Dispatch<SetStateAction<DetailsData | undefined>>
 }
 
-const BackButton = ({backIcon, setCardPage} : BackButtonProps) => {
+const BackButton = ({backIcon, setCardPage, setCountryData} : BackButtonProps) => {
     return (
-        <div className="BackButton" onClick={() => setCardPage({test:"ee"})}>
+        <div className="BackButton" onClick={() => {
+            setCardPage('')
+            setCountryData(undefined)
+            }}>
             <img src={backIcon} alt="Back Icon" />
             <span>Back</span>
         </div>
