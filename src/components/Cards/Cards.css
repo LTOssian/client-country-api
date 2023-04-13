@@ -1,4 +1,4 @@
-.Cards h2 {
+.errorTitle, .loadingTitle {
     text-align: center;
     color: var(--text-secondary);
 }
