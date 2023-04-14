@@ -2,7 +2,9 @@ import axios from "axios";
 import { HomeData } from "./homeDatas";
 
 export interface DetailsData extends HomeData {
-    languages: string[];
+    languages: {
+        [key: string]: string
+    };
     currencies: {
         [key: string]: {
             name: string;
@@ -11,10 +13,11 @@ export interface DetailsData extends HomeData {
     };
     subregion: string;
     tld: string[];
+    borders: string[];
 }
 
 export const CountryDetailsData = async (name: string) => {
-    const response = await axios.get(`https://restcountries.com/v3.1/name/${name}?fields=name,population,region,languages,currencies,capital,subregion,tld,flags`);
+    const response = await axios.get(`https://restcountries.com/v3.1/name/${name}?fields=name,population,region,languages,currencies,capital,subregion,tld,flags,borders`);
 
     const countryDetails: DetailsData[] = response.data 
     return countryDetails;

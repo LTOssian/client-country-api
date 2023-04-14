@@ -12,10 +12,10 @@
 }
 
 @media only screen and (max-width: 600px) {
-    span {
+    .DarkModeButton span {
         font-size: 12px;
     }
-    img {
+    .DarkModeButton img {
         width: 1rem;
     }
 }
