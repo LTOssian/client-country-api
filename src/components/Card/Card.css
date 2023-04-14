@@ -37,7 +37,7 @@
     flex-flow: column;
     gap: .5rem;
 }
-.smallerInfo h4 {
+.smallerInfo h3 {
     font-weight: 600;
 }
 .smallerInfo span {

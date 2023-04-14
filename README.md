@@ -1,4 +1,4 @@
-# REST Countries API with color theme switer and search filters
+# REST Countries API with color theme switcher and search filters
 
 ## Table of contents
 

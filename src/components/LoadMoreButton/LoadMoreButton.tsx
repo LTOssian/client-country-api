@@ -11,9 +11,9 @@ const LoadMore = ({cardsCount, onClick, countryLength}: LoadMoreProps) => {
 
 
     return countryLength > cardsCount ? (
-        <div className="LoadMoreButton" onClick={(e) => onClick( cardsCount + 8 )}>
+        <footer className="LoadMoreButton" onClick={(e) => onClick( cardsCount + 8 )}>
             <span>Show More...</span>
-        </div>
+        </footer>
     ) : null}
 
 export default LoadMore

@@ -14,14 +14,14 @@ interface CardProps {
 const Card = ({name, capital, population, flagAlt, flagSrc, region, setCardPage} :CardProps) => {
     return (
         <div className="Card" onClick={() => {setCardPage(name)}}>
-            <div className="flagContainer" style={{backgroundImage:`url(${flagSrc})`}} aria-label={flagAlt}>
+            <div className="flagContainer" style={{backgroundImage:`url(${flagSrc})`}} aria-details={flagAlt}>
             </div>
             <div className="infoContainer">
-                <h3 className="title">{name}</h3>
+                <h2 className="title">{name}</h2>
                 <div className="smallerInfo">
-                    <h4>Population: <span>{population}</span></h4>
-                    <h4>Region: <span>{region}</span></h4>
-                    <h4>Capital: <span>{capital}</span></h4>
+                    <h3>Population: <span>{population}</span></h3>
+                    <h3>Region: <span>{region}</span></h3>
+                    <h3>Capital: <span>{capital}</span></h3>
                     
                 </div>
             </div>

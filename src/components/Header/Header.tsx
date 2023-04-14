@@ -11,11 +11,11 @@ const Header = ({onClick, currentTheme}: ThemeProps) => {
     
 
     return (
-        <div className="Header">
+        <header className="Header">
             <h1>Where in the world?</h1>
 
             <DarkModeButton onClick={onClick} currentTheme={currentTheme}/>
-        </div>
+        </header>
     )
 }
 

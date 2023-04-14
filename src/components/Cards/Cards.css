@@ -4,9 +4,9 @@
 }
 .Cards {
     margin: 0 auto;
-    max-width: 1330px;
+    max-width: 1350px;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    gap: 75px;
+    gap: 74px;
 }
