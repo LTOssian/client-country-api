@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# REST Countries API with color theme switer and search filters
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+### The challenge
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users should be able to:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page *(todo)*
+- Toggle the color scheme between light and dark mode
 
-### `npm test`
+### Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Home screen shot](./src/assets/screenshot.jpeg)
 
-### `npm run build`
+### Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Solution URL: [Solution](https://your-solution-url.com)
+- Live Site URL: [Github Pages](https://ltossian.github.io/front-country-api/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Semantic HTML5 markup
+- CSS custom properties
+- [React](https://reactjs.org/) - JS library
+- [Axios](https://www.npmjs.com/package/axios)
+- [React Query](https://tanstack.com/query/v3/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
 
-### `npm run eject`
+### What I learned
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I got familiar with React's principles of Reusability, Props, States and Effects.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```ts
+   const [regionsList, setRegions] = useState([""]);
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    const {isError, isSuccess,isLoading, data} = useQuery(
+        ["homeCountries"],
+        homeCountriesData,
+        {
+            staleTime: 60000
+        }
+    )
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    useEffect(() => {
+        if (isSuccess) {
+            const regionsData: string[] = []
+                data.forEach((country) => {
+                    if (!regionsData.includes(country.region)) {
+                        regionsData.push(country.region)
+                    }
+                })    
+            setRegions(regionsData);
+        }
+    }, [data, isSuccess])
+```
 
-## Learn More
+In this snippet, I take advantage of useEffect to set my state when the component mounts && the data is successfully fetched.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Continued development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I need to deepen my understanding of React with TypeScript, as well as organize my project structures in a better way.
+I don't know if my use of props was optimal.
+
+### Useful resources
+
+- [React's Documentation](https://react.dev/learn) - Very clear and useful for basics.
+- [Typescript's Documentation](https://www.typescriptlang.org/docs/) - My favorite place to browse these past few days.
+
+## Author
+
+- Frontend Mentor - [@LTOssian](https://www.frontendmentor.io/profile/LTOssian)
+- LinkedIn - [@LouisanTchitoula](https://www.linkedin.com/in/louisan-tchitoula/)
+
+## Acknowledgments
+
+Thhanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing quality designs and allow us to focus on the developpement side.

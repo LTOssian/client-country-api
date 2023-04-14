@@ -35,14 +35,6 @@ const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterV
             <div className="filterSelect">
                 <div className="selectedValue" onClick={(e) => setShowOptions(showOptions ? false : true)}>
                     <span>{filterValue ? filterValue : "Filter by Region"}</span>
-                    <select name="regionFilter" id="regionFilter">
-                        <option value="">Filter By Region</option>
-                        <option value="africa">Africa</option>
-                        <option value="america">America</option>
-                        <option value="asia">Asia</option>
-                        <option value="europe">Europe</option>
-                        <option value="oceania">Oceania</option>
-                    </select>
                     <img src={!currentTheme ? lightExpand : darkExpand} alt="Expand Icon" />
                 </div>
 
@@ -61,10 +53,6 @@ const Search = ({currentTheme, placeHolder, searchValue, searchOnChange, filterV
                     }
                 </div>
             </div>
-
-
-
-            {/*  */}
         </div>
     )
 }

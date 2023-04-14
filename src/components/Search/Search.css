@@ -64,7 +64,7 @@ input[type="search"]::placeholder {
 
 .selectedValue {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     height: var(--input-height);
     cursor: pointer;
@@ -83,6 +83,14 @@ input[type="search"]::placeholder {
     width: 100%;
     padding: .5rem 1.5rem;
     cursor: pointer;
+}
+
+.option:first-of-type {
+    padding-top: 1rem; 
+}
+
+.option:last-of-type {
+    padding-bottom: 1rem; 
 }
 
 .option:hover {

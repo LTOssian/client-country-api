@@ -35,8 +35,9 @@ ul {
 li {
     list-style-type: none;
     font-size: 1rem;
-    font-weight: 200;
+    font-weight: 300;
     min-width: 200px;
+    margin-bottom: 1rem;
 }
 
 strong {
@@ -71,6 +72,10 @@ strong {
 }
 
 @media screen and (max-width: 1330px) {
+    li {
+        font-size: 14px;
+    }
+
     .imgContainer {
         margin: 0 auto;
     }
@@ -78,7 +83,9 @@ strong {
         flex-flow: column;
         gap: 2.75rem;
     }
-
+    .detailContainer h2 {
+        font-size: 22px;
+    }
     .liContainer {
         flex-flow: column;
         margin-bottom: 2rem;
@@ -87,7 +94,9 @@ strong {
         text-align: left;
         padding: 0;
     }
-    
+    .borderCountrySpan {
+        font-size: 14px;
+    }
 
     .DetailMain .imgContainer img {
         width: 320px;
