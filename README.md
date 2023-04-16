@@ -32,7 +32,6 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://your-solution-url.com)
 - Live Site URL: [Github Pages](https://ltossian.github.io/front-country-api/)
 
 ### Built with
@@ -91,4 +90,4 @@ I don't know if my use of props was optimal.
 
 ## Acknowledgments
 
-Thhanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing quality designs and allow us to focus on the developpement side.
+Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing quality designs and allow us to focus on the developpement side.
